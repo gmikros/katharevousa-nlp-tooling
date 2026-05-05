@@ -1,0 +1,214 @@
+schema_name: ud_v2_katharevousa_extensions
+
+version: 1.0.0
+
+description: UD v2 morphology and dependencies with sidecar Katharevousa metadata.
+
+
+
+ud:
+
+  upos:
+
+    - ADJ
+
+    - ADP
+
+    - ADV
+
+    - AUX
+
+    - CCONJ
+
+    - DET
+
+    - INTJ
+
+    - NOUN
+
+    - NUM
+
+    - PART
+
+    - PRON
+
+    - PROPN
+
+    - PUNCT
+
+    - SCONJ
+
+    - SYM
+
+    - VERB
+
+    - X
+
+  deprel:
+
+    - acl
+
+    - advcl
+
+    - advmod
+
+    - amod
+
+    - appos
+
+    - aux
+
+    - case
+
+    - cc
+
+    - ccomp
+
+    - clf
+
+    - compound
+
+    - conj
+
+    - cop
+
+    - csubj
+
+    - dep
+
+    - det
+
+    - discourse
+
+    - dislocated
+
+    - expl
+
+    - fixed
+
+    - flat
+
+    - goeswith
+
+    - iobj
+
+    - list
+
+    - mark
+
+    - nmod
+
+    - nsubj
+
+    - nummod
+
+    - obj
+
+    - obl
+
+    - orphan
+
+    - parataxis
+
+    - preconj
+
+    - punct
+
+    - reparandum
+
+    - root
+
+    - vocative
+
+    - xcomp
+
+  feats_keys:
+
+    - Abbr
+
+    - Animacy
+
+    - Aspect
+
+    - Case
+
+    - Definite
+
+    - Degree
+
+    - Evident
+
+    - Foreign
+
+    - Gender
+
+    - Mood
+
+    - Number
+
+    - NumType
+
+    - Person
+
+    - Polarity
+
+    - Polite
+
+    - Poss
+
+    - PronType
+
+    - Reflex
+
+    - Tense
+
+    - Typo
+
+    - VerbForm
+
+    - Voice
+
+
+
+katharevousa_extensions:
+
+  archaic_lexeme_class:
+
+    - legalism
+
+    - administrative
+
+    - ecclesiastical
+
+    - classicizing
+
+    - neutral
+
+  orthography_source:
+
+    - polytonic_original
+
+    - normalized_monotonic
+
+  legacy_morphology_flags:
+
+    - productive_dative
+
+    - active_infinitive
+
+    - archaic_past_stem
+
+    - participial_periphrasis
+
+    - archaic_prepositional_government
+
+  legal_register_markers:
+
+    - formulaic_opening
+
+    - ministerial_reference
+
+    - institutional_title
+
+    - procedural_clause
+

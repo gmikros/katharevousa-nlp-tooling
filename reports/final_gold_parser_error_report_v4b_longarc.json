@@ -1,0 +1,206 @@
+{
+  "token_count": 4093,
+  "las_by_sentence_length": {
+    "01_10": 0.6177739430543572,
+    "11_20": 0.48666186012977647,
+    "21_30": 0.4591304347826087,
+    "31_plus": 0.43724279835390945
+  },
+  "uas_by_sentence_length": {
+    "01_10": 0.6876617773943055,
+    "11_20": 0.558759913482336,
+    "21_30": 0.528695652173913,
+    "31_plus": 0.5
+  },
+  "uas_by_gold_head_distance": {
+    "11_plus": 0.04294478527607362,
+    "1_2": 0.7615919629057187,
+    "3_5": 0.1622746185852982,
+    "6_10": 0.060498220640569395,
+    "root": 0.7352941176470589
+  },
+  "top_deprel_confusions": [
+    {
+      "gold": "obl",
+      "pred": "nmod",
+      "count": 42
+    },
+    {
+      "gold": "nmod",
+      "pred": "obl",
+      "count": 32
+    },
+    {
+      "gold": "conj",
+      "pred": "nmod",
+      "count": 30
+    },
+    {
+      "gold": "nsubj:pass",
+      "pred": "nsubj",
+      "count": 22
+    },
+    {
+      "gold": "obj",
+      "pred": "obl",
+      "count": 21
+    },
+    {
+      "gold": "obj",
+      "pred": "nmod",
+      "count": 17
+    },
+    {
+      "gold": "amod",
+      "pred": "nmod",
+      "count": 17
+    },
+    {
+      "gold": "root",
+      "pred": "nmod",
+      "count": 15
+    },
+    {
+      "gold": "nsubj",
+      "pred": "root",
+      "count": 14
+    },
+    {
+      "gold": "advmod",
+      "pred": "cc",
+      "count": 14
+    },
+    {
+      "gold": "root",
+      "pred": "appos",
+      "count": 13
+    },
+    {
+      "gold": "appos",
+      "pred": "root",
+      "count": 13
+    },
+    {
+      "gold": "conj",
+      "pred": "nsubj",
+      "count": 13
+    },
+    {
+      "gold": "advcl",
+      "pred": "root",
+      "count": 12
+    },
+    {
+      "gold": "appos",
+      "pred": "nmod",
+      "count": 12
+    },
+    {
+      "gold": "root",
+      "pred": "nsubj",
+      "count": 10
+    },
+    {
+      "gold": "obl",
+      "pred": "obj",
+      "count": 10
+    },
+    {
+      "gold": "obl",
+      "pred": "amod",
+      "count": 9
+    },
+    {
+      "gold": "aux",
+      "pred": "mark",
+      "count": 9
+    },
+    {
+      "gold": "conj",
+      "pred": "obl",
+      "count": 9
+    }
+  ],
+  "top_sentences_by_las_errors": [
+    {
+      "sent_id": "1977_reconstructed-108-6",
+      "las_errors": 43
+    },
+    {
+      "sent_id": "1977_reconstructed-121-7",
+      "las_errors": 38
+    },
+    {
+      "sent_id": "1977_reconstructed-107-17",
+      "las_errors": 37
+    },
+    {
+      "sent_id": "1977_reconstructed-113-1",
+      "las_errors": 35
+    },
+    {
+      "sent_id": "1977_reconstructed-107-3",
+      "las_errors": 30
+    },
+    {
+      "sent_id": "1977_reconstructed-107-10",
+      "las_errors": 28
+    },
+    {
+      "sent_id": "1977_reconstructed-1-44",
+      "las_errors": 28
+    },
+    {
+      "sent_id": "1977_reconstructed-1-141",
+      "las_errors": 26
+    },
+    {
+      "sent_id": "1977_reconstructed-121-5",
+      "las_errors": 25
+    },
+    {
+      "sent_id": "1977_reconstructed-113-8",
+      "las_errors": 23
+    },
+    {
+      "sent_id": "1977_reconstructed-103-5",
+      "las_errors": 23
+    },
+    {
+      "sent_id": "1977_reconstructed-1-163",
+      "las_errors": 22
+    },
+    {
+      "sent_id": "1977_reconstructed-107-14",
+      "las_errors": 22
+    },
+    {
+      "sent_id": "1977_reconstructed-1-168",
+      "las_errors": 21
+    },
+    {
+      "sent_id": "1977_reconstructed-1-36",
+      "las_errors": 21
+    },
+    {
+      "sent_id": "1977_reconstructed-1-165",
+      "las_errors": 21
+    },
+    {
+      "sent_id": "1977_reconstructed-10-20",
+      "las_errors": 21
+    },
+    {
+      "sent_id": "1977_reconstructed-12-29",
+      "las_errors": 20
+    },
+    {
+      "sent_id": "1977_reconstructed-10-19",
+      "las_errors": 20
+    },
+    {
+      "sent_id": "1977_reconstructed-106-8",
+      "las_errors": 17
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "token_count": 4093,
+  "las_by_sentence_length": {
+    "01_10": 0.6160483175150993,
+    "11_20": 0.4808940158615717,
+    "21_30": 0.4539130434782609,
+    "31_plus": 0.43106995884773663
+  },
+  "uas_by_sentence_length": {
+    "01_10": 0.6850733390854185,
+    "11_20": 0.5544340302811824,
+    "21_30": 0.5269565217391304,
+    "31_plus": 0.4948559670781893
+  },
+  "uas_by_gold_head_distance": {
+    "11_plus": 0.049079754601226995,
+    "1_2": 0.7550231839258115,
+    "3_5": 0.15950069348127602,
+    "6_10": 0.07473309608540925,
+    "root": 0.7323529411764705
+  },
+  "top_deprel_confusions": [
+    {
+      "gold": "obl",
+      "pred": "nmod",
+      "count": 41
+    },
+    {
+      "gold": "nmod",
+      "pred": "obl",
+      "count": 37
+    },
+    {
+      "gold": "conj",
+      "pred": "nmod",
+      "count": 29
+    },
+    {
+      "gold": "amod",
+      "pred": "nmod",
+      "count": 20
+    },
+    {
+      "gold": "nsubj:pass",
+      "pred": "nsubj",
+      "count": 20
+    },
+    {
+      "gold": "root",
+      "pred": "nmod",
+      "count": 19
+    },
+    {
+      "gold": "obj",
+      "pred": "nmod",
+      "count": 18
+    },
+    {
+      "gold": "obj",
+      "pred": "obl",
+      "count": 18
+    },
+    {
+      "gold": "nsubj",
+      "pred": "root",
+      "count": 14
+    },
+    {
+      "gold": "advmod",
+      "pred": "cc",
+      "count": 14
+    },
+    {
+      "gold": "appos",
+      "pred": "root",
+      "count": 14
+    },
+    {
+      "gold": "advcl",
+      "pred": "root",
+      "count": 13
+    },
+    {
+      "gold": "obl",
+      "pred": "amod",
+      "count": 12
+    },
+    {
+      "gold": "root",
+      "pred": "appos",
+      "count": 12
+    },
+    {
+      "gold": "conj",
+      "pred": "nsubj",
+      "count": 12
+    },
+    {
+      "gold": "appos",
+      "pred": "nmod",
+      "count": 11
+    },
+    {
+      "gold": "conj",
+      "pred": "obl",
+      "count": 10
+    },
+    {
+      "gold": "ccomp",
+      "pred": "root",
+      "count": 10
+    },
+    {
+      "gold": "obj",
+      "pred": "root",
+      "count": 10
+    },
+    {
+      "gold": "aux",
+      "pred": "mark",
+      "count": 9
+    }
+  ],
+  "top_sentences_by_las_errors": [
+    {
+      "sent_id": "1977_reconstructed-108-6",
+      "las_errors": 45
+    },
+    {
+      "sent_id": "1977_reconstructed-121-7",
+      "las_errors": 40
+    },
+    {
+      "sent_id": "1977_reconstructed-107-17",
+      "las_errors": 36
+    },
+    {
+      "sent_id": "1977_reconstructed-113-1",
+      "las_errors": 35
+    },
+    {
+      "sent_id": "1977_reconstructed-107-10",
+      "las_errors": 31
+    },
+    {
+      "sent_id": "1977_reconstructed-107-3",
+      "las_errors": 31
+    },
+    {
+      "sent_id": "1977_reconstructed-1-44",
+      "las_errors": 28
+    },
+    {
+      "sent_id": "1977_reconstructed-1-141",
+      "las_errors": 27
+    },
+    {
+      "sent_id": "1977_reconstructed-121-5",
+      "las_errors": 25
+    },
+    {
+      "sent_id": "1977_reconstructed-113-8",
+      "las_errors": 24
+    },
+    {
+      "sent_id": "1977_reconstructed-103-5",
+      "las_errors": 23
+    },
+    {
+      "sent_id": "1977_reconstructed-1-163",
+      "las_errors": 22
+    },
+    {
+      "sent_id": "1977_reconstructed-107-14",
+      "las_errors": 22
+    },
+    {
+      "sent_id": "1977_reconstructed-1-168",
+      "las_errors": 21
+    },
+    {
+      "sent_id": "1977_reconstructed-1-165",
+      "las_errors": 21
+    },
+    {
+      "sent_id": "1977_reconstructed-1-36",
+      "las_errors": 20
+    },
+    {
+      "sent_id": "1977_reconstructed-10-20",
+      "las_errors": 20
+    },
+    {
+      "sent_id": "1977_reconstructed-12-29",
+      "las_errors": 19
+    },
+    {
+      "sent_id": "1977_reconstructed-10-19",
+      "las_errors": 19
+    },
+    {
+      "sent_id": "1977_reconstructed-109-7",
+      "las_errors": 18
+    }
+  ]
+}

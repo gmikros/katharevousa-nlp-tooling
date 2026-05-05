@@ -1,0 +1,36 @@
+{
+  "dataset": {
+    "total_sentences": 1697,
+    "test_sentences": 340,
+    "test_tokens": 4093,
+    "missing_test_ids": []
+  },
+  "split": {
+    "seed": 42,
+    "source_manifest": "reports\\transformer_parser_v1_opt_split.json",
+    "stratified_by_source_sheet": false
+  },
+  "stanza": {
+    "lang": "el",
+    "processors": "tokenize,pos,lemma,depparse",
+    "token_count_mismatch_sentences": 0
+  },
+  "model_scores": {
+    "upos_accuracy": 0.612509161983875,
+    "deprel_f1_weighted": 0.42415053513676304,
+    "uas": 0.6078670901539214,
+    "las": 0.339604202296604
+  },
+  "hybrid_proxy_scores": {
+    "upos_accuracy": 0.31321768873686784,
+    "deprel_f1_weighted": 2.011203474407555e-05,
+    "uas": 0.0842902516491571,
+    "las": 0.0007329587099926704
+  },
+  "delta_model_minus_baseline": {
+    "upos_accuracy": 0.2992914732470071,
+    "deprel_f1_weighted": 0.424130423102019,
+    "uas": 0.5235768385047643,
+    "las": 0.3388712435866113
+  }
+}

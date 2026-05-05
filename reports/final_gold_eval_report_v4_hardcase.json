@@ -1,0 +1,53 @@
+{
+  "dataset": {
+    "total_sentences": 1697,
+    "train_sentences": 1357,
+    "test_sentences": 340,
+    "train_tokens": 15944,
+    "train_tokens_after_hardcase_aug": 23200,
+    "test_tokens": 4093
+  },
+  "hardcase_augmentation": {
+    "enabled": true,
+    "error_report_source": "reports\\final_gold_parser_error_report_v3.json",
+    "target_deprel_count": 12,
+    "target_deprels": [
+      "advcl",
+      "advmod",
+      "amod",
+      "appos",
+      "cc",
+      "conj",
+      "nmod",
+      "nsubj",
+      "nsubj:pass",
+      "obj",
+      "obl",
+      "root"
+    ],
+    "hardcase_multiplier": 3,
+    "min_sentence_len": 21,
+    "min_head_distance": 6,
+    "hardcase_examples": 3628,
+    "hardcase_repeats_added": 7256,
+    "augmented_train_examples": 23200
+  },
+  "model_scores": {
+    "upos_accuracy": 0.9032494502809675,
+    "deprel_f1_weighted": 0.74238128867323,
+    "uas": 0.5734180307842658,
+    "las": 0.5035426337649646
+  },
+  "hybrid_proxy_scores": {
+    "upos_accuracy": 0.31321768873686784,
+    "deprel_f1_weighted": 2.011203474407555e-05,
+    "uas": 0.0842902516491571,
+    "las": 0.0007329587099926704
+  },
+  "delta_model_minus_baseline": {
+    "upos_accuracy": 0.5900317615440996,
+    "deprel_f1_weighted": 0.742361176638486,
+    "uas": 0.4891277791351087,
+    "las": 0.5028096750549719
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "dataset": {
+    "total_sentences": 1697,
+    "train_sentences": 1357,
+    "test_sentences": 340
+  },
+  "training": {
+    "encoder_name": "xlm-roberta-base",
+    "epochs": 4,
+    "batch_size": 4,
+    "learning_rate": 1.5e-05,
+    "weight_decay": 0.01,
+    "max_length": 256,
+    "warmup_ratio": 0.12,
+    "upos_weight": 1.25,
+    "arc_weight": 1.55,
+    "rel_weight": 1.35,
+    "history": [
+      {
+        "epoch": 1.0,
+        "loss": 1.126099673877744,
+        "learning_rate": 1.2781954887218045e-05,
+        "global_step": 340.0
+      },
+      {
+        "epoch": 2.0,
+        "loss": 0.5621546134790953,
+        "learning_rate": 8.521303258145363e-06,
+        "global_step": 680.0
+      },
+      {
+        "epoch": 3.0,
+        "loss": 0.41596126657198457,
+        "learning_rate": 4.260651629072682e-06,
+        "global_step": 1020.0
+      },
+      {
+        "epoch": 4.0,
+        "loss": 0.3681324553402031,
+        "learning_rate": 0.0,
+        "global_step": 1360.0
+      }
+    ]
+  },
+  "model_scores": {
+    "upos_accuracy": 0.8817493281211825,
+    "deprel_f1_weighted": 0.6418046885098145,
+    "uas": 0.507207427314928,
+    "las": 0.40141705350598583
+  },
+  "hybrid_proxy_scores": {
+    "upos_accuracy": 0.31321768873686784,
+    "deprel_f1_weighted": 2.011203474407555e-05,
+    "uas": 0.0842902516491571,
+    "las": 0.0007329587099926704
+  },
+  "delta_model_minus_baseline": {
+    "upos_accuracy": 0.5685316393843146,
+    "deprel_f1_weighted": 0.6417845764750705,
+    "uas": 0.42291717566577086,
+    "las": 0.40068409479599315
+  },
+  "output_dir": "src\\kathnlp\\models\\transformer_parser_v2_opt"
+}
