@@ -1,0 +1,35 @@
+\section{Experimental Setup}
+
+\subsection{Split protocol}
+
+All primary comparisons share a fixed split manifest (\texttt{seed=42}) to avoid accidental data leakage or split drift:
+\begin{itemize}[leftmargin=1.25em]
+  \item train sentences: 1,357
+  \item test sentences: 340
+  \item test tokens: 4,093
+\end{itemize}
+
+\subsection{Metrics}
+
+We report:
+\begin{itemize}[leftmargin=1.25em]
+  \item UPOS accuracy
+  \item DEPREL weighted F1
+  \item UAS (Unlabeled Attachment Score)
+  \item LAS (Labeled Attachment Score)
+\end{itemize}
+
+\subsection{Implementation notes}
+
+Transformer runs are based on joint token/arc/relation prediction heads with controlled hyperparameter sweeps. Stanza custom training required strict CoNLL-U validation and, for some phases, filtering of structurally invalid training trees to satisfy framework-level UD constraints.
+
+\subsection{External baseline protocol}
+
+To benchmark existing libraries directly, we run three external baselines on the same fixed test split:
+\begin{itemize}[leftmargin=1.25em]
+  \item spaCy Greek parser (\texttt{el\_core\_news\_lg}),
+  \item Stanza Greek pretrained pipeline (\texttt{tokenize,pos,lemma,depparse}),
+  \item Stanza Ancient Greek PROIEL pipeline (\texttt{grc\_PROIEL}).
+\end{itemize}
+
+All three use the gold tokenization boundary from the test set and are evaluated with the same scorer as the internal models. The consolidated report is stored in \texttt{reports/external\_baselines\_report.json}.

@@ -1,0 +1,28 @@
+\section{Annotation and Methods}
+
+\subsection{Representation}
+
+We use UD-style token-level representation in CoNLL-U, with per-token fields for form, lemma, UPOS, FEATS, HEAD, and DEPREL. Pipeline-side constraints enforce shape consistency before records are admitted to the frozen dataset.
+
+\subsection{Operational robustness}
+
+The annotation pipeline is designed for long-running, interruption-prone generation:
+\begin{itemize}[leftmargin=1.25em]
+  \item offset-based batch progression with resumable state,
+  \item explicit retry queue for failed or malformed outputs,
+  \item conservative parse fallbacks for near-valid JSON,
+  \item cost and throughput monitoring for practical budget control.
+\end{itemize}
+
+\subsection{Model families}
+
+We evaluate five model families:
+\begin{enumerate}[leftmargin=1.25em]
+  \item feature-based logistic parser with learned head labels,
+  \item transformer parser with multilingual encoder (XLM-R),
+  \item mBERT variants under matched split/evaluation settings,
+  \item Stanza pretrained Greek baseline,
+  \item custom-trained Stanza POS + depparse.
+\end{enumerate}
+
+Stanza-based components and comparisons use the standard toolkit implementation \cite{qi2020stanza}.

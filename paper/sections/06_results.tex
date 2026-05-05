@@ -1,0 +1,38 @@
+\section{Results}
+
+\subsection{Main benchmark}
+
+\input{tables/table_main_benchmark}
+
+The XLM-R configuration \texttt{v1\_opt} is the strongest structural parser in this benchmark, achieving the best UAS and LAS. The feature-based logistic baseline remains competitive in UPOS and DEPREL, suggesting that engineered lexical-context features still offer value at this data scale.
+
+\subsection{mBERT and Stanza comparisons}
+
+The best mBERT run underperforms XLM-R on all four metrics. Pretrained Stanza is unexpectedly close on UAS but lags strongly on LAS and DEPREL. Custom Stanza training substantially improves over pretrained Stanza and approaches the best LAS range, but does not exceed \texttt{v1\_opt}.
+
+\subsection{External library baselines}
+
+Direct off-the-shelf library baselines confirm the motivation for this project:
+\begin{itemize}[leftmargin=1.25em]
+  \item spaCy Greek baseline outperforms pretrained Stanza Greek and Ancient Greek PROIEL on LAS,
+  \item Stanza Ancient Greek PROIEL is the weakest overall on this Katharevousa parliamentary split,
+  \item all external baselines remain substantially below custom models and transformer best.
+\end{itemize}
+
+In particular, LAS rises from 0.4183 (best external baseline: spaCy Greek) to 0.5162 (\texttt{v1\_opt}), a large absolute gain for downstream syntax-sensitive use.
+
+\subsection{Figure placeholders for final version}
+
+\begin{figure}[H]
+\centering
+\fbox{\parbox[c][2.0in][c]{0.92\linewidth}{\centering Placeholder: Model metric comparison bar chart (UPOS/DEPREL/UAS/LAS).}}
+\caption{Cross-model metric comparison on the fixed test split.}
+\label{fig:model_metrics}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\fbox{\parbox[c][2.0in][c]{0.92\linewidth}{\centering Placeholder: Training curves for XLM-R and custom Stanza (loss/dev trend).}}
+\caption{Representative training dynamics for selected model families.}
+\label{fig:training_curves}
+\end{figure}

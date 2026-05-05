@@ -1,0 +1,13 @@
+\section{Introduction}
+
+Computational analysis of Greek parliamentary archives from the democratic transition period is constrained by three coupled bottlenecks: noisy OCR, register mismatch between Katharevousa and modern NLP resources, and limited gold-standard syntactic data \cite{barmpounis2024,fitsilis2024}. While prior work has demonstrated that hybrid processing can recover useful stylometric and discourse-level signals, a dedicated and reproducible dependency parsing pipeline for Katharevousa has remained missing.
+
+This study addresses that gap by moving from exploratory hybrid analysis to full parser development with explicit benchmark governance. We frame the contribution not as a single-model result, but as a pipeline outcome:
+\begin{itemize}[leftmargin=1.25em]
+  \item robust data reconstruction and annotation operations,
+  \item controlled train/test split management,
+  \item multi-family model comparison under shared metrics,
+  \item transparent reporting of failed and successful optimization paths.
+\end{itemize}
+
+The goal is twofold: (1) produce a release-ready baseline for open distribution and (2) provide a replicable methodological blueprint for low-resource historical language NLP.

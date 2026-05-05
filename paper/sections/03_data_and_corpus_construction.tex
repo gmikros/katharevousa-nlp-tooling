@@ -1,0 +1,29 @@
+\section{Data and Corpus Construction}
+
+\subsection{Source context}
+
+The corpus context follows the post-junta parliamentary archive setting described in earlier work: written parliamentary questions (1976--1977), predominantly in formal Katharevousa. Upstream OCR and document processing create usable text but leave substantial reconstruction demands for syntax-oriented NLP.
+
+\subsection{Reconstruction and preprocessing}
+
+Before annotation, we apply reconstruction-focused preprocessing to repair OCR-induced segmentation and format errors, especially:
+\begin{itemize}[leftmargin=1.25em]
+  \item line-break hyphenation and split-word joins,
+  \item malformed punctuation around sentence boundaries,
+  \item long enumerative sentences that break naive splitting,
+  \item parser-breaking malformed JSON from annotation calls.
+\end{itemize}
+
+\subsection{LLM-assisted gold generation and freeze}
+
+Annotation is generated through schema-constrained GPT batch processing with retry and resume logic. A deterministic freeze step merges batch and retry outputs into one deduplicated final snapshot:
+\begin{itemize}[leftmargin=1.25em]
+  \item final sentences: 1,697,
+  \item source breakdown: 1,565 batch + 132 retry replacements.
+\end{itemize}
+
+The frozen file and manifest ensure exact reruns:
+\begin{itemize}[leftmargin=1.25em]
+  \item \texttt{data/processed/final\_gold/gold\_final.conllu}
+  \item \texttt{data/processed/final\_gold/snapshot\_manifest.json}
+\end{itemize}

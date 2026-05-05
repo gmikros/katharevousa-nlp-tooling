@@ -1,0 +1,18 @@
+\section{Error Analysis and Optimization Path}
+
+Several optimization passes were informative even when they did not improve final metrics:
+\begin{itemize}[leftmargin=1.25em]
+  \item learning-rate schedule and loss reweighting changes often caused broad regressions,
+  \item hard-case augmentation did not consistently improve generalization,
+  \item tokenizer truncation alignment required strict old/new index mapping to avoid head-index errors,
+  \item framework-level strictness in Stanza exposed latent structural inconsistencies in portions of the data.
+\end{itemize}
+
+This history is important for reproducibility: negative results narrowed the viable region and justified selecting \texttt{v1\_opt} as the release candidate.
+
+\begin{figure}[H]
+\centering
+\fbox{\parbox[c][2.0in][c]{0.92\linewidth}{\centering Placeholder: LAS/UAS by sentence-length bucket and head-distance bucket.}}
+\caption{Error profile across structural difficulty factors.}
+\label{fig:error_profile}
+\end{figure}

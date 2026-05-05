@@ -1,78 +1,54 @@
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage[a4paper,margin=1in]{geometry}
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{hyperref}
-\usepackage{graphicx}
-\usepackage{enumitem}
-
-\title{Building a Reproducible Katharevousa Greek NLP Pipeline:\\
-From OCR Reconstruction and LLM-Assisted Gold Data to Dependency Parsing}
-\author{George Mikros \and Fotios Fitsilis}
-\date{\today}
-
-\begin{document}
-\maketitle
-
-\begin{abstract}
-Katharevousa Greek remains under-served by modern NLP tools despite its central role in archival and parliamentary corpora. We present a reproducible end-to-end pipeline for building a dependency parsing benchmark and model stack for Katharevousa from noisy historical sources. Starting from OCR-derived parliamentary material, we apply targeted text reconstruction, large-scale LLM-assisted annotation, and quality-controlled CoNLL-U consolidation to produce a frozen gold dataset of 1,697 sentences. We evaluate feature-based, transformer, mBERT, and Stanza variants on a fixed held-out split. The best overall model is an XLM-R parser with UPOS 0.8893, DEPREL F1 0.7250, UAS 0.6098, and LAS 0.5162. We release scripts and evaluation artifacts to support reproducibility.
-\end{abstract}
-
-\section{Introduction}
-Historical and formal Greek registers, especially Katharevousa, pose a structural mismatch for modern Greek NLP systems trained primarily on Demotic corpora. This affects morphology and syntax, especially dependency structure in long institutional prose. We document a reproducible research workflow from OCR reconstruction to parser selection and release readiness.
-
-\section{Data and Pipeline}
-The pipeline builds on OCR-derived post-junta parliamentary material and includes:
-\begin{itemize}[leftmargin=1.25em]
-  \item reconstruction-aware preprocessing (hyphenation and sentence restoration),
-  \item schema-constrained LLM annotation with validation and retries,
-  \item deterministic freeze of final CoNLL-U and manifests,
-  \item fixed train/test split evaluation with shared metrics.
-\end{itemize}
-
-Frozen snapshot summary: 1,697 sentences total, with 1,565 from first-pass batches and 132 from retry replacements.
-
-\section{Experimental Setup}
-Fixed split (seed 42): train 1,357 sentences, test 340 sentences (4,093 tokens). Metrics: UPOS accuracy, DEPREL weighted F1, UAS, LAS.
-
-\subsection{Compared Models}
-\begin{itemize}[leftmargin=1.25em]
-  \item Logistic baseline (feature-based parser).
-  \item Transformer XLM-R (v1\_opt).
-  \item mBERT variants.
-  \item Stanza pretrained Greek baseline.
-  \item Stanza custom-trained baseline.
-\end{itemize}
-
-\section{Results}
-\begin{table}[h]
-\centering
-\caption{Main benchmark results on fixed test split.}
-\begin{tabular}{lcccc}
-\toprule
-Model & UPOS & DEPREL F1 & UAS & LAS \\
-\midrule
-Logistic baseline (v3) & 0.9040 & 0.7451 & 0.5781 & 0.5072 \\
-XLM-R (v1\_opt) & 0.8893 & 0.7250 & \textbf{0.6098} & \textbf{0.5162} \\
-mBERT (best) & 0.8260 & 0.6076 & 0.5886 & 0.4537 \\
-Stanza pretrained & 0.6125 & 0.4242 & 0.6079 & 0.3396 \\
-Stanza custom (600 steps) & 0.7694 & 0.6588 & 0.5756 & 0.4943 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-XLM-R offers the best structural parsing performance (UAS/LAS), while the logistic baseline remains competitive in UPOS/DEPREL at this dataset scale. Custom Stanza improves substantially over pretrained Stanza but remains below XLM-R overall.
-
-\section{Discussion}
-The experimentation journey highlights practical lessons: sensitivity to scheduler/weight tuning, fragile gains from hard-case augmentation, and framework-level constraints in strict UD handling. Negative results are reported because they inform reproducible low-resource methodology.
-
-\section{Conclusion}
-The pipeline demonstrates that release-ready Katharevousa parsing is feasible with constrained annotation budgets when LLM-assisted generation is paired with strict validation and reproducible evaluation. The XLM-R v1\_opt model is the recommended first public release.
-
-\bibliographystyle{plain}
-\bibliography{references}
-
-\end{document}
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{siunitx}
+\usepackage{setspace}
+\usepackage{float}
+
+\title{Building a Reproducible Katharevousa Greek NLP Pipeline:\\
+From OCR Reconstruction and LLM-Assisted Gold Data to Dependency Parsing}
+\author{
+George Mikros \\
+\small Hamad Bin Khalifa University
+\and
+Fotios Fitsilis \\
+\small Universidad Austral
+}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\input{sections/00_abstract}
+\end{abstract}
+
+\noindent\textbf{Keywords:} Katharevousa Greek, low-resource NLP, dependency parsing, OCR reconstruction, historical parliamentary corpora, reproducibility.
+
+\input{sections/01_introduction}
+\input{sections/02_related_work}
+\input{sections/03_data_and_corpus_construction}
+\input{sections/04_annotation_and_methods}
+\input{sections/05_experimental_setup}
+\input{sections/06_results}
+\input{sections/07_error_analysis}
+\input{sections/08_discussion}
+\input{sections/09_conclusion}
+
+\appendix
+\input{sections/appendix_a_figures}
+\input{sections/appendix_b_tables}
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

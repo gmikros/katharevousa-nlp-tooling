@@ -1,0 +1,24 @@
+\section{Related Work}
+
+\subsection{Parliamentary corpora and Greek digital humanities}
+
+Recent digital humanities work on Greek parliamentary archives has shown that computational methods can recover meaningful political and stylistic patterns even in degraded historical material \cite{barmpounis2024,fitsilis2024}. The prior DSH manuscript in this research line documents corpus curation, OCR constraints, and computational stylistics on post-junta parliamentary questions, including methodological discussion on hybrid spaCy/Stanza feature extraction.
+
+\subsection{Low-resource and historical NLP}
+
+Low-resource historical NLP often faces annotation scarcity, orthographic instability, and domain mismatch between pretrained tools and target texts. In such settings, reproducibility and failure-aware engineering are as important as model architecture \cite{grimmer2013}. Our work contributes this perspective by publishing operational decisions (resume-safe batching, parse validation, deterministic freezing) alongside model scores.
+
+\subsection{Why existing libraries are insufficient for Katharevousa parsing}
+
+Our motivation to develop a dedicated library is empirical rather than purely conceptual. On the fixed held-out split used in this paper, off-the-shelf parsing baselines underperform substantially in labeled attachment:
+\begin{itemize}[leftmargin=1.25em]
+  \item spaCy Greek (\texttt{el\_core\_news\_lg}): LAS 0.4183,
+  \item Stanza Greek pretrained: LAS 0.3396,
+  \item Stanza Ancient Greek (\texttt{grc\_PROIEL}): LAS 0.3076.
+\end{itemize}
+
+These results confirm a broad domain mismatch: modern Greek models under-handle archaizing syntax, while Ancient Greek models do not transfer cleanly to mixed modern-institutional parliamentary vocabulary and style. This motivates a tailored pipeline with Katharevousa-specific reconstruction, annotation, and model selection.
+
+\subsection{LLM-assisted annotation}
+
+LLM-assisted annotation pipelines are increasingly used to bootstrap structured datasets where expert time is limited. However, these pipelines remain sensitive to malformed outputs, schema drift, and cost/latency variance. We therefore treat LLM assistance as constrained annotation infrastructure rather than autonomous labeling, with explicit post-processing, retries, and validation.
