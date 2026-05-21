@@ -2,6 +2,38 @@
 
 Reproducible tooling for morphological and dependency parsing experiments on Katharevousa Greek parliamentary text.
 
+## Local Clone and GitHub
+
+- **Local folder:** `C:\Users\USER01\Dropbox\Workplace\D\George\PAPERS\Katharevousa NLP library`
+- **GitHub repository:** [github.com/gmikros/katharevousa-nlp-tooling](https://github.com/gmikros/katharevousa-nlp-tooling)
+
+This folder is the working copy. Edit here, then push to GitHub so Overleaf and collaborators stay in sync.
+
+### Quick sync commands
+
+From the repository root:
+
+```powershell
+cd "C:\Users\USER01\Dropbox\Workplace\D\George\PAPERS\Katharevousa NLP library"
+git status
+git pull origin main
+git add -A
+git commit -m "Describe your change"
+git push origin main
+```
+
+Or use the helper script:
+
+```powershell
+.\scripts\sync_github.ps1 status
+.\scripts\sync_github.ps1 pull
+.\scripts\sync_github.ps1 push -Message "Update paper tables"
+```
+
+### Overleaf
+
+Overleaf should import from GitHub (`gmikros/katharevousa-nlp-tooling`), not from Dropbox directly. After pushing from this folder, use **Menu → Git → Pull GitHub changes** in Overleaf.
+
 ## Overview
 
 This repository provides the complete research pipeline from OCR-derived source reconstruction to gold-data freezing, model training, and benchmark comparison.

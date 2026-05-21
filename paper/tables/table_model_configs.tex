@@ -1,18 +1,36 @@
-\begin{table}[H]
-\centering
-\caption{Primary model configurations used in final comparisons.}
-\label{tab:model_configs}
-\begin{tabular}{p{2.6cm}p{2.8cm}p{5.0cm}}
-\toprule
-Family & Name & Key Configuration \\
-\midrule
-External baseline & spaCy Greek & \texttt{el\_core\_news\_lg} parser, evaluated on fixed test split \\
-External baseline & Stanza Greek pretrained & \texttt{el} pipeline: tokenize+pos+lemma+depparse \\
-External baseline & Stanza Ancient Greek & \texttt{grc\_PROIEL} pipeline: tokenize+pos+lemma+depparse \\
-Feature-based & Logistic v3 & Learned head labels, enriched lexical-context features, fixed split evaluation \\
-Transformer & XLM-R v1\_opt & Encoder: \texttt{xlm-roberta-base}, 3 epochs, batch size 4, LR 2e-5 \\
-Transformer & mBERT v2 & Encoder: \texttt{bert-base-multilingual-cased}, 6 epochs, arc-emphasis weights \\
-Stanza & Custom v1 & Custom POS + depparse, 600 steps, strict CoNLL-U handling \\
-\bottomrule
-\end{tabular}
-\end{table}
+\begin{table}[H]
+
+\centering
+
+\caption{Primary model configurations used in final comparisons.}
+
+\label{tab:model_configs}
+
+\begin{tabular}{p{2.6cm}p{2.8cm}p{5.0cm}}
+
+\toprule
+
+Family & Name & Key Configuration \\
+
+\midrule
+
+External baseline & spaCy Greek & \texttt{el\_core\_news\_lg} parser, evaluated on fixed test split \\
+
+External baseline & Stanza Greek pretrained & \texttt{el} pipeline: tokenize+pos+lemma+depparse \\
+
+External baseline & Stanza Ancient Greek & \texttt{grc\_PROIEL} pipeline: tokenize+pos+lemma+depparse \\
+
+Feature-based & Logistic v3 & Learned head labels, enriched lexical-context features, fixed split evaluation \\
+
+Transformer & XLM-R v1\_opt & Encoder: \texttt{xlm-roberta-base}, 3 epochs, batch size 4, LR 2e-5 \\
+
+Transformer & mBERT v2 & Encoder: \texttt{bert-base-multilingual-cased}, 6 epochs, arc-emphasis weights \\
+
+Stanza & Custom v1 & Custom POS + depparse, 600 steps, strict CoNLL-U handling \\
+
+\bottomrule
+
+\end{tabular}
+
+\end{table}
+
