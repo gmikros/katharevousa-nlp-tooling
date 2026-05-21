@@ -1,48 +1,27 @@
-# Paper Folder (Journal-style, Overleaf-ready)
+# Paper — Katharevousa NLP
 
+LaTeX source for the manuscript that accompanies the `kathnlp` project.
 
+## Files
 
-This folder is structured for direct Overleaf import from GitHub with modular section files.
+- `main.tex` — full manuscript (single-file build)
+- `references.bib` — bibliography
+- `figures/` — figure assets included from `main.tex`
 
+## Build
 
+Locally (any TeX Live distribution):
 
-## Structure
+```bash
+cd paper
+pdflatex main.tex
+bibtex main
+pdflatex main.tex
+pdflatex main.tex
+```
 
+## Overleaf
 
+Import the GitHub repository (`gmikros/katharevousa-nlp-tooling`) into Overleaf and set `paper/main.tex` as the main document. After updates are pushed to GitHub, refresh the Overleaf copy via **Menu → Git → Pull GitHub changes**.
 
-- `main.tex` - master manuscript file
-
-- `references.bib` - bibliography
-
-- `sections/` - one file per major section
-
-- `tables/` - reusable table blocks included by sections
-
-- `figures/` - image assets (`.pdf`, `.png`, `.eps`)
-
-
-
-## Overleaf Import
-
-
-
-1. Overleaf -> `New Project` -> `Import from GitHub`
-
-2. Select this repository (`gmikros/katharevousa-nlp-tooling`)
-
-3. In Overleaf, set `paper/main.tex` as the main document if auto-detection fails
-
-
-
-## Editing Conventions
-
-
-
-- Put narrative text in `sections/*.tex`.
-
-- Put large tables in `tables/*.tex` and include with `\input{tables/...}`.
-
-- Keep figures in `figures/` and reference from section files.
-
-- Use citation keys from `references.bib` only; add missing entries before submission.
-
+See the top-level [`README.md`](../README.md) for project context, results, and citation.

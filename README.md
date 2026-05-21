@@ -1,81 +1,109 @@
-# Katharevousa NLP Tooling
+<div align="center">
 
-Reproducible tooling for morphological and dependency parsing experiments on Katharevousa Greek parliamentary text.
+# kathnlp — Katharevousa Greek NLP
 
-## Local Clone and GitHub
+**A Universal-Dependencies-style morphological and dependency parser for Katharevousa Greek parliamentary text.**
 
-- **Local folder:** `C:\Users\USER01\Dropbox\Workplace\D\George\PAPERS\Katharevousa NLP library`
-- **GitHub repository:** [github.com/gmikros/katharevousa-nlp-tooling](https://github.com/gmikros/katharevousa-nlp-tooling)
+[![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org)
+[![Status](https://img.shields.io/badge/status-research%20preview-orange)](#status)
+[![Paper](https://img.shields.io/badge/paper-LaTeX-informational)](paper/main.tex)
 
-This folder is the working copy. Edit here, then push to GitHub so Overleaf and collaborators stay in sync.
+</div>
 
-### Quick sync commands
+---
 
-From the repository root:
+## About
 
-```powershell
-cd "C:\Users\USER01\Dropbox\Workplace\D\George\PAPERS\Katharevousa NLP library"
-git status
-git pull origin main
-git add -A
-git commit -m "Describe your change"
-git push origin main
+`kathnlp` builds the first reproducible NLP pipeline targeted at **Katharevousa Greek**, the archaizing official register used in 20th-century Greek law, administration, and parliamentary discourse. Off-the-shelf Greek and Ancient Greek parsers cover this register poorly: standard Greek pipelines miss morphology and dependency structure that are routine in parliamentary questions from the 1970s, and Ancient Greek pipelines mismatch the modern institutional vocabulary.
+
+The project releases:
+
+- a frozen, UD-style annotated reference set of **1,697 sentences**;
+- a fixed train/test split and a shared evaluation protocol;
+- benchmark reports for spaCy Greek, Stanza Greek, Stanza Ancient Greek (PROIEL), mBERT, XLM-R, and a transparent feature-based baseline;
+- the data construction, annotation, training, and evaluation code used to produce them.
+
+## Highlights
+
+Fixed 340-sentence held-out split (seed 42), reference token boundaries, identical scoring code for all systems.
+
+| Model                          | UPOS       | DEPREL F1  | UAS        | LAS        |
+|--------------------------------|------------|------------|------------|------------|
+| spaCy Greek                    | 0.6721     | 0.5315     | 0.5492     | 0.4183     |
+| Stanza Greek (pretrained)      | 0.6125     | 0.4242     | 0.6079     | 0.3396     |
+| Stanza Ancient Greek PROIEL    | 0.5292     | 0.4044     | 0.4850     | 0.3076     |
+| mBERT                          | 0.8260     | 0.6076     | 0.5886     | 0.4537     |
+| Stanza (custom-trained)        | 0.7694     | 0.6588     | 0.5756     | 0.4943     |
+| Feature-based baseline         | **0.9040** | **0.7451** | 0.5781     | 0.5072     |
+| **XLM-R (release candidate)**  | 0.8893     | 0.7250     | **0.6098** | **0.5162** |
+
+The XLM-R release candidate improves LAS by **+0.0980 absolute** over the strongest off-the-shelf baseline (spaCy Greek). The feature-based parser remains best for UPOS and dependency-relation labeling, which is itself a methodological finding for low-resource historical NLP.
+
+![Benchmark metrics](paper/figures/benchmark_metrics.png)
+
+## Installation
+
+```bash
+git clone https://github.com/gmikros/katharevousa-nlp-tooling.git
+cd katharevousa-nlp-tooling
+pip install -e .
 ```
 
-Or use the helper script:
+Requires Python 3.10+. PyTorch and Transformers are pulled in automatically; install a CUDA-enabled `torch` first if you intend to train on GPU.
 
-```powershell
-.\scripts\sync_github.ps1 status
-.\scripts\sync_github.ps1 pull
-.\scripts\sync_github.ps1 push -Message "Update paper tables"
+## Quick start
+
+Train the release-candidate XLM-R parser on the frozen reference set:
+
+```bash
+python scripts/train_transformer_parser.py \
+  --gold-path data/processed/final_gold/gold_final.conllu \
+  --encoder-name xlm-roberta-base \
+  --epochs 3 --batch-size 4
 ```
 
-### Overleaf
+Reproduce the external-library baselines on the same split:
 
-Overleaf should import from GitHub (`gmikros/katharevousa-nlp-tooling`), not from Dropbox directly. After pushing from this folder, use **Menu → Git → Pull GitHub changes** in Overleaf.
+```bash
+python scripts/evaluate_external_baselines.py
+```
 
-## Overview
+End-to-end corpus reconstruction (OCR exports → frozen CoNLL-U snapshot) is documented in [`docs/MAINTAINER.md`](docs/MAINTAINER.md).
 
-This repository provides the complete research pipeline from OCR-derived source reconstruction to gold-data freezing, model training, and benchmark comparison.
+## Repository layout
 
-Core components include:
-
-- text reconstruction for historical OCR artifacts;
-- schema-constrained annotation workflows;
-- deterministic CoNLL-U snapshot generation;
-- fixed-split evaluation across model families;
-- paper and release assets for scientific dissemination.
-
-## Repository Layout
-
-- `configs/` - annotation schema and run configuration
-- `scripts/` - data processing, training, and evaluation entrypoints
-- `src/kathnlp/` - library code for pipelines, training, and metrics
-- `reports/` - experiment outputs and comparative benchmarks
-- `paper/` - journal-style LaTeX manuscript
-
-## Reproducible Workflow
-
-1. Export source files:
-   - `python scripts/export_sources.py --docx-path "<appendix_docx>" --excel-path "<source_xlsx>" --output-dir data`
-2. Reconstruct OCR text:
-   - `python scripts/reconstruct_answer_files.py --csv-paths data/exports/sheets/1976.csv data/exports/sheets/1977.csv --answer-column-name "Answer Files" --output-dir data/interim/reconstructed_sheets`
-3. Freeze final gold snapshot:
-   - `python scripts/freeze_final_gold_snapshot.py`
-4. Train and evaluate parser baselines:
-   - `python scripts/train_and_evaluate.py`
-   - `python scripts/train_transformer_parser.py --gold-path data/processed/final_gold/gold_final.conllu --encoder-name xlm-roberta-base --epochs 3 --batch-size 4`
-5. Evaluate external library baselines:
-   - `python scripts/evaluate_external_baselines.py`
-
-## Key Reports
-
-- `reports/transformer_parser_v1_opt_report.json`
-- `reports/transformer_parser_mbert_v2_report.json`
-- `reports/stanza_custom_v1_report.json`
-- `reports/stanza_baseline_report.json`
-- `reports/external_baselines_report.json`
+```
+configs/      annotation schema and run configuration
+data/         reconstructed corpus and frozen reference snapshots
+docs/         design notes and maintainer documentation
+paper/        LaTeX manuscript (Overleaf-ready)
+reports/      benchmark JSON reports for every released model
+scripts/      data construction, training, and evaluation entrypoints
+src/kathnlp/  library code (pipelines, training, metrics)
+```
 
 ## Paper
 
-The manuscript source is maintained in `paper/` and is structured for direct Overleaf import from GitHub.
+The full methodology, error analysis, and discussion live in the LaTeX manuscript under [`paper/`](paper). The current draft is a single-file build (`paper/main.tex`) ready for direct Overleaf import from this repository.
+
+## Citation
+
+If you use `kathnlp`, the reference annotations, or the benchmark protocol, please cite:
+
+```bibtex
+@misc{mikrosfitsilis2026kathnlp,
+  title        = {A Reproducible Universal Dependencies-Style Pipeline for
+                  Katharevousa Greek Parliamentary Text},
+  author       = {Mikros, George and Fitsilis, Fotios},
+  year         = {2026},
+  howpublished = {\url{https://github.com/gmikros/katharevousa-nlp-tooling}}
+}
+```
+
+## Status
+
+This is a research preview. The reference annotations are automatically validated rather than fully expert-adjudicated, and the held-out split is small (340 sentences / 4,093 tokens). Expert review with philologist annotators is in progress and will be released as a versioned update, together with a Hugging Face model release for the XLM-R candidate.
+
+## Acknowledgements
+
+The source corpus is the archive of 1976–1977 written Greek parliamentary questions used in the companion digital-humanities study by Mikros & Fitsilis. We thank the philologist reviewers contributing to the human-adjudication phase.
