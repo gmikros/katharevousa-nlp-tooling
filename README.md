@@ -7,6 +7,7 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2605.22978-b31b1b.svg)](https://arxiv.org/abs/2605.22978)
 [![HF Model](https://img.shields.io/badge/%F0%9F%A4%97%20model-gmikros%2Fkathnlp--xlmr-yellow)](https://huggingface.co/gmikros/kathnlp-xlmr)
 [![HF Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20dataset-gmikros%2Fkathnlp--treebank-yellow)](https://huggingface.co/datasets/gmikros/kathnlp-treebank)
+[![HF Space](https://img.shields.io/badge/%F0%9F%A4%97%20demo-gmikros%2Fkathnlp--demo-yellow)](https://huggingface.co/spaces/gmikros/kathnlp-demo)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org)
 [![Status](https://img.shields.io/badge/status-research%20preview-orange)](#status)
 
