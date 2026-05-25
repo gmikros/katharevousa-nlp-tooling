@@ -4,6 +4,7 @@
 
 **A Universal-Dependencies-style morphological and dependency parser for Katharevousa Greek parliamentary text.**
 
+[![arXiv](https://img.shields.io/badge/arXiv-2605.22978-b31b1b.svg)](https://arxiv.org/abs/2605.22978)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org)
 [![Status](https://img.shields.io/badge/status-research%20preview-orange)](#status)
 [![Paper](https://img.shields.io/badge/paper-LaTeX-informational)](paper/main.tex)
@@ -84,7 +85,11 @@ src/kathnlp/  library code (pipelines, training, metrics)
 
 ## Paper
 
-The full methodology, error analysis, and discussion live in the LaTeX manuscript under [`paper/`](paper). The current draft is a single-file build (`paper/main.tex`) ready for direct Overleaf import from this repository.
+The full methodology, error analysis, and discussion are published as an arXiv preprint:
+
+> **A Reproducible Universal Dependencies-Style Pipeline for Katharevousa Greek Parliamentary Text.** George Mikros, Fotios Fitsilis. arXiv:2605.22978, 2026. <https://arxiv.org/abs/2605.22978>
+
+The LaTeX source lives under [`paper/`](paper) and is structured as a single-file build (`paper/main.tex`) for direct Overleaf import from this repository.
 
 ## Citation
 
@@ -92,11 +97,14 @@ If you use `kathnlp`, the reference annotations, or the benchmark protocol, plea
 
 ```bibtex
 @misc{mikrosfitsilis2026kathnlp,
-  title        = {A Reproducible Universal Dependencies-Style Pipeline for
-                  Katharevousa Greek Parliamentary Text},
-  author       = {Mikros, George and Fitsilis, Fotios},
-  year         = {2026},
-  howpublished = {\url{https://github.com/gmikros/katharevousa-nlp-tooling}}
+  title         = {A Reproducible Universal Dependencies-Style Pipeline for
+                   Katharevousa Greek Parliamentary Text},
+  author        = {Mikros, George and Fitsilis, Fotios},
+  year          = {2026},
+  eprint        = {2605.22978},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  url           = {https://arxiv.org/abs/2605.22978}
 }
 ```
 

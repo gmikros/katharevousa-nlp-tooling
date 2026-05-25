@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use kathnlp, the reference annotations, or the benchmark protocol, please cite the accompanying paper."
+title: "kathnlp: A Reproducible Universal Dependencies-Style Pipeline for Katharevousa Greek Parliamentary Text"
+type: software
+authors:
+  - family-names: Mikros
+    given-names: George
+    affiliation: Hamad Bin Khalifa University
+  - family-names: Fitsilis
+    given-names: Fotios
+    affiliation: Universidad Austral
+repository-code: "https://github.com/gmikros/katharevousa-nlp-tooling"
+url: "https://github.com/gmikros/katharevousa-nlp-tooling"
+keywords:
+  - Katharevousa Greek
+  - historical NLP
+  - Universal Dependencies
+  - dependency parsing
+  - low-resource NLP
+  - parliamentary corpora
+preferred-citation:
+  type: article
+  title: "A Reproducible Universal Dependencies-Style Pipeline for Katharevousa Greek Parliamentary Text"
+  authors:
+    - family-names: Mikros
+      given-names: George
+      affiliation: Hamad Bin Khalifa University
+    - family-names: Fitsilis
+      given-names: Fotios
+      affiliation: Universidad Austral
+  year: 2026
+  journal: "arXiv preprint arXiv:2605.22978"
+  url: "https://arxiv.org/abs/2605.22978"

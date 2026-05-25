@@ -2,6 +2,8 @@
 
 LaTeX source for the manuscript that accompanies the `kathnlp` project.
 
+Published preprint: **arXiv:2605.22978** — <https://arxiv.org/abs/2605.22978>.
+
 ## Files
 
 - `main.tex` — full manuscript (single-file build)
