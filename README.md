@@ -5,6 +5,7 @@
 **A Universal-Dependencies-style morphological and dependency parser for Katharevousa Greek parliamentary text.**
 
 [![arXiv](https://img.shields.io/badge/arXiv-2605.22978-b31b1b.svg)](https://arxiv.org/abs/2605.22978)
+[![HF Model](https://img.shields.io/badge/%F0%9F%A4%97%20model-gmikros%2Fkathnlp--xlmr-yellow)](https://huggingface.co/gmikros/kathnlp-xlmr)
 [![HF Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20dataset-gmikros%2Fkathnlp--treebank-yellow)](https://huggingface.co/datasets/gmikros/kathnlp-treebank)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org)
 [![Status](https://img.shields.io/badge/status-research%20preview-orange)](#status)
@@ -54,7 +55,21 @@ Requires Python 3.10+. PyTorch and Transformers are pulled in automatically; ins
 
 ## Quick start
 
-Train the release-candidate XLM-R parser on the frozen reference set:
+### Parse a sentence with the released model
+
+```bash
+pip install git+https://github.com/gmikros/katharevousa-nlp-tooling.git
+```
+
+```python
+from kathnlp.hub import load_from_hub
+
+parser = load_from_hub("gmikros/kathnlp-xlmr")  # add device="cuda" for GPU
+for tok in parser.parse("Ἡ Κυβέρνησις παρακαλεῖται νά ἀποδεχθῇ τό αἴτημα."):
+    print(tok.id, tok.form, tok.upos, tok.head, tok.deprel)
+```
+
+### Retrain the parser from the released treebank
 
 ```bash
 python scripts/train_transformer_parser.py \
@@ -63,7 +78,7 @@ python scripts/train_transformer_parser.py \
   --epochs 3 --batch-size 4
 ```
 
-Reproduce the external-library baselines on the same split:
+### Reproduce the external-library baselines
 
 ```bash
 python scripts/evaluate_external_baselines.py

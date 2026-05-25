@@ -36,6 +36,10 @@ dependencies = [
 
   "transformers>=4.48.0",
 
+  "huggingface_hub>=0.30.0",
+
+  "safetensors>=0.4.0",
+
 ]
 
 
