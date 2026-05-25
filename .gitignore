@@ -26,6 +26,8 @@ temp/
 # Large/generated artifacts
 data/
 src/kathnlp/models/
+dataset_release/
+model_release/
 
 # Keep reports for reproducibility
 !reports/

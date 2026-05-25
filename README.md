@@ -5,9 +5,9 @@
 **A Universal-Dependencies-style morphological and dependency parser for Katharevousa Greek parliamentary text.**
 
 [![arXiv](https://img.shields.io/badge/arXiv-2605.22978-b31b1b.svg)](https://arxiv.org/abs/2605.22978)
+[![HF Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20dataset-gmikros%2Fkathnlp--treebank-yellow)](https://huggingface.co/datasets/gmikros/kathnlp-treebank)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org)
 [![Status](https://img.shields.io/badge/status-research%20preview-orange)](#status)
-[![Paper](https://img.shields.io/badge/paper-LaTeX-informational)](paper/main.tex)
 
 </div>
 
