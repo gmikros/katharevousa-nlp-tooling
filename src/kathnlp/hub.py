@@ -70,17 +70,13 @@ class Parser:
                 form=form,
                 lemma=form,
                 upos="X",
-                xpos=None,
-                feats={},
                 head=0,
                 deprel="dep",
-                deps=None,
-                misc={},
             )
             for i, form in enumerate(forms)
         ]
         sentence = UDSentenceAnnotation(
-            sent_id="user_input",
+            sentence_id="user_input",
             text=text,
             tokens=ud_tokens,
         )
