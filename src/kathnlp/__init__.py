@@ -1,1 +1,0 @@
-"""Katharevousa NLP toolkit package."""
