@@ -236,7 +236,7 @@ The CoNLL-U columns follow [UD v2](https://universaldependencies.org/format.html
 
 ## Curation and provenance
 
-- **Source archive.** Greek parliamentary written questions from 1976–1977, OCR-derived and reconstructed for word-internal hyphenation and line-break artifacts. The same archive underlies the companion DSH digital-humanities study.
+- **Source archive.** Greek parliamentary written questions from 1976–1977, OCR-derived and reconstructed for word-internal hyphenation and line-break artifacts. The underlying documents were digitised from the historical archive of the 1st Parliamentary Term (1974–1977) of the Hellenic Parliament — 1,674 page images / 1,338 questions processed with a custom OCR platform (YOLOv5 text-line segmentation + Calamari-OCR), reaching 98.7% character recognition accuracy — by Fitsilis et al. (ICDAR 2024 Workshops; DOI [10.1007/978-3-031-70645-5_8](https://doi.org/10.1007/978-3-031-70645-5_8)). The same archive underlies the companion DSH digital-humanities study.
 - **Annotation.** Schema-constrained LLM-assisted annotation (GPT-5 family) with structured JSON output, automatic validation, retry queues, and deterministic snapshotting. 1,565 sentences come from the main batch path; 132 are retry replacements that passed validation after the original batch failed.
 - **Status.** The annotations are **automatically validated**, not fully expert-adjudicated. A philologist adjudication round is in progress and will be released as a versioned update.
 
@@ -285,6 +285,8 @@ Released under **Creative Commons Attribution-ShareAlike 4.0** (`cc-by-sa-4.0`),
 
 ## Citation
 
+Please cite the accompanying paper:
+
 ```bibtex
 @misc{mikrosfitsilis2026kathnlp,
   title         = {A Reproducible Universal Dependencies-Style Pipeline for
@@ -295,6 +297,26 @@ Released under **Creative Commons Attribution-ShareAlike 4.0** (`cc-by-sa-4.0`),
   archivePrefix = {arXiv},
   primaryClass  = {cs.CL},
   url           = {https://arxiv.org/abs/2605.22978}
+}
+```
+
+The source corpus digitization is described in:
+
+```bibtex
+@inproceedings{fitsilis2024digitization,
+  title     = {Digitization of Written Parliamentary Questions from the
+               Historical Archive (1974--1977) of the Hellenic Parliament},
+  author    = {Fitsilis, Fotios and Gatos, Basilis and Palaiologos, Konstantinos
+               and Kaddas, Panagiotis and Kyrkos, Charalambis and
+               Georgoulea, Maria-Eleni and Armenakis, Yiannis and Tasouli, Christina
+               and Mikros, George and Rozenberg, Olivier and Kiousi, Eleni},
+  booktitle = {Document Analysis and Recognition -- ICDAR 2024 Workshops},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {14935},
+  pages     = {103--117},
+  year      = {2024},
+  publisher = {Springer Nature Switzerland},
+  doi       = {10.1007/978-3-031-70645-5_8}
 }
 ```
 """
